@@ -6,11 +6,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Karlen/OneDrive/Desktop/JDA-4.3.0_277-withDependencies.jar" sourcepath="C:/Users/Karlen/Downloads/JDA-4.3.0_277-sources.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/C:/Users/Karlen/Downloads/JDA-4.3.0_277-javadoc.jar!/"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Karlen/OneDrive/Desktop/slf4j.jdk14-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Suyash/Desktop/Code/JDA_JARS/JDA-4.3.0_277-withDependencies.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
