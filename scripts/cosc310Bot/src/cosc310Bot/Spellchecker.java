@@ -8,8 +8,7 @@ import java.util.ArrayList;
 import com.google.gson.*;
 import javax.net.ssl.HttpsURLConnection;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+
 
 public class Spellchecker {
 	static String host = "https://api.bing.microsoft.com/";
@@ -18,12 +17,15 @@ public class Spellchecker {
 	static String key = "81cbfb962852437180e90fb421863d36";
 	static String mkt = "en-GB";
 	static String mode = "proof";
-	static String text = "...";
+	public static String text = "creamm";
+	public static String result = "";
 	
 	
 	public static void main(String []args) {
 		try {
-			check();
+			check(text);
+			System.out.print(result);
+			
 		}
 		catch (Exception e) {
 			System.out.println (e);
@@ -31,7 +33,10 @@ public class Spellchecker {
 	
 	}
 	
-	public static void check() throws Exception {
+	public static void check(String text) throws Exception {
+		//new addition
+		String txt = text;
+		
 	    String params = "?mkt=" + mkt + "&mode=" + mode;
 	   // add the rest of the code snippets here (except prettify() and main())...
 	    
@@ -44,7 +49,10 @@ public class Spellchecker {
 	    connection.setDoOutput(true);
 	    
 	    DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
-	    wr.writeBytes("text=" + text);
+	    //OG
+	    // wr.writeBytes("text=" + text);
+	    //new
+	    wr.writeBytes("text=" + txt);
 	    wr.flush();
 	    wr.close();
 	    
@@ -52,20 +60,13 @@ public class Spellchecker {
 	    		new InputStreamReader(connection.getInputStream()));
 	    		String line;
 	    		while ((line = in.readLine()) != null) {
-	    			//System.out.println(prettify(line));
-	    			parse(line);
+	    			
+	    			 result = parse(line);
 
 	    		}
 	    		in.close();
 	}
 	
-	
-	/*public static String prettify(String json_text) {
-	    JsonParser parser = new JsonParser();
-	    JsonElement json = parser.parse(json_text);
-	    Gson gson = new GsonBuilder().setPrettyPrinting().create();
-	    return gson.toJson(json);
-	    }*/
 	
 	public static String parse(String json_text) {
 		
@@ -74,19 +75,11 @@ public class Spellchecker {
 		
 		for (int i = 0; i < arr.length; i++) {
 			if (arr[i].equals("suggestion")) {
-		System.out.println(arr[i+2]); 
+		//System.out.println(arr[i+2]); 
 			rec = arr[i+2];
 			break;
-			}
-			
-			
-				//System.out.println(arr[i]); 
-					
-			
-			
-			}
-		
-		
+			}	
+		}
 		
 		return rec;
 		

@@ -8,6 +8,7 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="/Users/zachprenovost/Downloads/JDA-4.3.0_277-withDependencies (1).jar"/>
 	<classpathentry kind="lib" path="/Users/zachprenovost/Downloads/gson-2.9.0.jar"/>
-	<classpathentry kind="lib" path="/Users/zachprenovost/Downloads/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/Users/zachprenovost/Downloads/apache-opennlp-1.9.4/lib/opennlp-tools-1.9.4.jar"/>
+	<classpathentry kind="lib" path="/Users/zachprenovost/Downloads/apache-opennlp-1.9.4/lib/opennlp-uima-1.9.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
