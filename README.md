@@ -9,6 +9,8 @@ Our agent receives an input from the user via our Discord messaging channel. The
 - Spellchecker method: This method will correct any spelling mistakes made in the message sent by the user. The agent will then respond to the correctly spelled sentence. If the message sent by the user is very misspelled, the agent will notify the user that it does not understand.
 
 - Parts of speech tagging Method: This method can identify the type of words used in the message sent by the user. Depending on the nouns used in the sentence the agent will respond with a more engaged output. This can make conversations more interesting and shows that the agent is trying to keep the conversation flowing.
+* POS Tagging setup: Java build path libraries need the required jar files added its the Classpath. Jar files are located in the lib folder from the top link: https://www.apache.org/dyn/closer.cgi/opennlp/opennlp-1.9.4/apache-opennlp-1.9.4-bin.zip
+* Required model for POS Tagging: https://opennlp.apache.org/models.html 
 
 POS Tagging: The agent is able to identify the specific item that the user is talking about and delivers an involved response.
 
