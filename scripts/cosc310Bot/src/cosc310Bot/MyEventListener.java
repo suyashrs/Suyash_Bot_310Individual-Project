@@ -36,15 +36,15 @@ public class MyEventListener extends ListenerAdapter{
 					//~~~TODO fix these 4 lines below~~~
 					//Spellchecker.text = split[i]; 
 						
-						System.out.println(split[i]);
-						Spellchecker.check(split[i]); // set text in spellchecker
 						
+						Spellchecker.check(split[i]); // set text in spellchecker
+						System.out.println(split[i]);
 					
 					if(Spellchecker.result != null) // if Spellchecker returns new word
 						split[i] = Spellchecker.result; // replace array word with with corrected one
 					
 					
-					Thread.sleep(334);
+					Thread.sleep(400);
 				}
 				// put array back together into a string
 				String combine = "";
