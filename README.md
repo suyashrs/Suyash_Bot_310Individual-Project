@@ -21,6 +21,15 @@ NameFinder setup: Java build path libraries need the required jar files added to
 Required model for NameFinder: Download en-ner-person.bin from: http://opennlp.sourceforge.net/models-1.5/
     
 # Demo Conversations
+SpellChecker: The agent is able to understand the message sent by the user even if there are spelling mistakes. This is because the agent will correct misspelled words and respond to the corrected message.
+
+<img width="379" src="https://user-images.githubusercontent.com/99511208/158907737-041d5b43-4343-4702-9971-794c2746d81e.png">
+
 POS Tagging: The agent is able to identify the specific item that the user is talking about and delivers an involved response.
 
-<img width="379" alt="discord" src="https://user-images.githubusercontent.com/99511208/158702513-d25860e9-c6ce-43cc-9182-b5afecd0345b.png">
+<img width="379" src="https://user-images.githubusercontent.com/99511208/158702513-d25860e9-c6ce-43cc-9182-b5afecd0345b.png">
+
+NameFinder: The agent is able to identify names within a message and generate an output that incorporates the name that was identified.
+
+<img width = "379" src="https://user-images.githubusercontent.com/99511208/158907144-532fd37c-f032-4f58-9654-a0eb9511e57c.png">
+

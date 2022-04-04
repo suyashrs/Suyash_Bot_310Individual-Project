@@ -130,9 +130,25 @@ public class MyEventListener extends ListenerAdapter{
 				//If a word is tagged as a noun, store that word into the nouns array
 				for(int j=0;j<tags.length;j++) {
 					if(tags[j].contentEquals("NOUN")) {
-						nouns[k] = strArray[j];
-						k++;
+						if(!strArray[j].contentEquals("foods")) {
+							if(!strArray[j].contentEquals("food")) {
+								if(!strArray[j].contentEquals("sports")) {
+									if(!strArray[j].contentEquals("sport")) {
+										if(!strArray[j].contentEquals("subject")) {
+											if(!strArray[j].contentEquals("subjects")) {
+												nouns[k] = strArray[j];
+												k++;
+											}
+										}
+									}
+								}
+							}
+						}
 					}
+				}
+		
+				for(var b=0; b <nouns.length; b++) {
+					System.out.println(""+nouns[b]);
 				}
 				//Selects a random noun from the nouns array
 				int nounNum = (int) (Math.random()*k);
@@ -387,9 +403,9 @@ public class MyEventListener extends ListenerAdapter{
 					}
 				}
 		
-	}
+		}
 		catch (Exception e) {
 			System.out.println(e);
 		}
-}
+	}
 }
