@@ -9,7 +9,7 @@ public class Main {
 	
 	public static void main(String [] args) throws Exception{
 		try {
-			JDABuilder jda = JDABuilder.createDefault("OTYxNzk4Mzc4NDU3NTU5MDYx.Yk-Oig.BJD0BX-JhmQgZvZFkSpaahh1SFE"); //TO-DELETE: OTQ2NTU3NjM5ODg4ODc1NTIx.Yhgcfw.uamsDJ_eW_3IKfGBmQH2avPz0dg
+			JDABuilder jda = JDABuilder.createDefault("OTYxNzk4Mzc4NDU3NTU5MDYx.Yk-Oig.TsFbFzqyZe-EV7W00AVnhB9nt4k"); //TO-DELETE:
 			jda.addEventListeners(new MyEventListener());
 			jda.build();
 		}catch(Exception e) {
