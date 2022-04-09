@@ -37,11 +37,11 @@ public class MyEventListener extends ListenerAdapter{
 					//Spellchecker.text = split[i]; 
 						
 						
-						Spellchecker.check(split[i]); // set text in spellchecker
+						//Spellchecker.check(split[i]); // set text in spellchecker
 						System.out.println(split[i]);
 					
-					if(Spellchecker.result != null) // if Spellchecker returns new word
-						split[i] = Spellchecker.result; // replace array word with with corrected one
+					//if(Spellchecker.result != null) // if Spellchecker returns new word
+						//split[i] = Spellchecker.result; // replace array word with with corrected one
 					
 					
 					Thread.sleep(400);
@@ -55,7 +55,7 @@ public class MyEventListener extends ListenerAdapter{
 						combine = combine + split[i] + " "; // append and add a space
 				}
 				s = combine;
-				System.out.println(s);
+				//System.out.println(s);
 				
 				
 				//KARLEN + CAM STUFF
@@ -78,8 +78,9 @@ public class MyEventListener extends ListenerAdapter{
 				TokenNameFinderModel nameModel = null;
 				try {
 					//get models from local system
-					modelIn = new FileInputStream("/Users/zachprenovost/Downloads/opennlp-en-ud-ewt-pos-1.0-1.9.3.bin");
-					inputStreamNameFinder = new FileInputStream("/Users/zachprenovost/Downloads/en-ner-person.bin");
+					modelIn = new FileInputStream("C:\\Users\\Suyash\\Desktop\\chatbot_Test\\friendbot-99-test\\scripts\\cosc310Bot\\resources\\opennlp-en-ud-ewt-pos-1.0-1.9.3.bin");
+					inputStreamNameFinder = new FileInputStream("C:\\Users\\Suyash\\Desktop\\chatbot_Test\\friendbot-99-test\\scripts\\cosc310Bot\\resources\\en-ner-person.bin");
+					System.out.println("");
 				} catch (FileNotFoundException e1) {
 					e1.printStackTrace();
 				}
