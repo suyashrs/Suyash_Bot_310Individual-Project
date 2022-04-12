@@ -2,6 +2,16 @@
 Bot that converses with the user
 
 Our agent receives an input from the user via our Discord messaging channel. The agent then uses a keyword system to generate an appropriate output message. The output message is then sent to the user via the Discord channel.
+# Individual Assignment Features
+## Wikipedia API
+- Used the Wikipedia API to provide names and definitions responses from Wikipedia by searching using the !wiki info ~ <search request> command
+- This allows the user to find definitions on topics either discussed with the bot or new topics that the user wants definitions on
+- The user can find definitions on topics like mental health; names and a bit on famous people; and info on locations
+- All the information is a request and response handled by the Wikipedia API
+
+## Google Translate API
+- Using !translate to <french/spanish/portuguese> ~ <text to translate>, the user can get translations on various text they ask the bot
+- This allows users on the go translations if they are chatting with a friend and receive a message in another language, just copy the message into the    given format and the bot will translate for you
 
 # Assignment 3 - Features
 1. Switch statement keyword system: Our agent uses a keyword system to generate the appropriate output to send to the user. The keyword system is fitted with multiple topics, greetings, small-talk phrases, and reactions that can be used in the agent's output. We have even implemented some randomization when it comes to the agent's response, so that the conversation can always be unique.
