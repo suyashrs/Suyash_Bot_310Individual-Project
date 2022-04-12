@@ -11,5 +11,7 @@
 	<classpathentry kind="lib" path="C:/Users/Suyash/Desktop/chatbot_Test/friendbot-99-test/libraries/Java Libraries/JDA-4.3.0_277-withDependencies.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Suyash/Desktop/chatbot_Test/friendbot-99-test/libraries/Java Libraries/junit-4.13.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Suyash/Desktop/chatbot_Test/friendbot-99-test/libraries/Java Libraries/opennlp-tools-1.9.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Suyash/Desktop/chatbot_Test/friendbot-99-test/libraries/Java Libraries/gson-2.9.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Suyash/Desktop/chatbot_Test/friendbot-99-test/libraries/Java Libraries/jsoup-1.14.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

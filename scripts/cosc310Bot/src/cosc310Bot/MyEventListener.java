@@ -1,10 +1,12 @@
 package cosc310Bot;
 
+import java.awt.Color;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
+import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.MessageChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
@@ -23,38 +25,38 @@ public class MyEventListener extends ListenerAdapter{
 		Message msg = event.getMessage();
 		String s = msg.getContentRaw();
 		MessageChannel channel = event.getChannel();
-		String prefix = "!";
+		//String prefix = "!";
 		
 		
 		
 		// NEW STUFF STARTS HERE
 				// break s into array of words
 		try {
-				String[] split = s.split("((?=!)|(?<=!)|(?=,)|(?=\\.)|(\\s+))");
-				// run each word/punctuation through spellchecker
-				for(int i = 0; i < split.length; i++) {
-					//~~~TODO fix these 4 lines below~~~
-					//Spellchecker.text = split[i]; 
-						
-						
-						//Spellchecker.check(split[i]); // set text in spellchecker
-						System.out.println(split[i]);
-					
-					//if(Spellchecker.result != null) // if Spellchecker returns new word
-						//split[i] = Spellchecker.result; // replace array word with with corrected one
-					
-					
-					Thread.sleep(400);
-				}
-				// put array back together into a string
-				String combine = "";
-				for(int i = 0; i < split.length; i++) {
-					if(i == split.length-1) // if its the last word
-						combine = combine + split[i];	//append and dont add a space
-					else
-						combine = combine + split[i] + " "; // append and add a space
-				}
-				s = combine;
+//				String[] split = s.split("((?=!)|(?<=!)|(?=,)|(?=\\.)|(\\s+))");
+//				// run each word/punctuation through spellchecker
+//				for(int i = 0; i < split.length; i++) {
+//					//~~~TODO fix these 4 lines below~~~
+//					//Spellchecker.text = split[i]; 
+//						
+//						
+//						//Spellchecker.check(split[i]); // set text in spellchecker
+//						System.out.println(split[i]);
+//					
+//					//if(Spellchecker.result != null) // if Spellchecker returns new word
+//						//split[i] = Spellchecker.result; // replace array word with with corrected one
+//					
+//					
+//					Thread.sleep(400);
+//				}
+//				// put array back together into a string
+//				String combine = "";
+//				for(int i = 0; i < split.length; i++) {
+//					if(i == split.length-1) // if its the last word
+//						combine = combine + split[i];	//append and dont add a space
+//					else
+//						combine = combine + split[i] + " "; // append and add a space
+//				}
+//				s = combine;
 				//System.out.println(s);
 				
 				
@@ -78,8 +80,8 @@ public class MyEventListener extends ListenerAdapter{
 				TokenNameFinderModel nameModel = null;
 				try {
 					//get models from local system
-					modelIn = new FileInputStream("C:\\Users\\Suyash\\Desktop\\chatbot_Test\\friendbot-99-test\\scripts\\cosc310Bot\\resources\\opennlp-en-ud-ewt-pos-1.0-1.9.3.bin");
-					inputStreamNameFinder = new FileInputStream("C:\\Users\\Suyash\\Desktop\\chatbot_Test\\friendbot-99-test\\scripts\\cosc310Bot\\resources\\en-ner-person.bin");
+					modelIn = new FileInputStream("..\\cosc310Bot\\resources\\opennlp-en-ud-ewt-pos-1.0-1.9.3.bin");
+					inputStreamNameFinder = new FileInputStream("..\\cosc310Bot\\resources\\en-ner-person.bin"); //C:\\Users\\Suyash\\Desktop\\chatbot_Test\\friendbot-99-test\\scripts
 					System.out.println("");
 				} catch (FileNotFoundException e1) {
 					e1.printStackTrace();
@@ -156,11 +158,21 @@ public class MyEventListener extends ListenerAdapter{
 				
 				//END
 		
-				if(s.startsWith(prefix)) {
+				if(s.startsWith(Main.prefix)) {
 					int out = 0;
 					s = s.toLowerCase();
-					if (s.contains("who") && s.contains("are") && s.contains("?")) // "Who are you?"
-						out = 1;
+					
+					if(s.contains("translate to") && (s.contains("~"))) {
+						out = 31;
+					}
+					else if(s.contains("translate"))
+						out = 32;
+					else if(s.contains("wiki info") && s.contains("~"))
+						out = 33;
+					else if(s.contains("wiki"))
+						out = 34;
+					else if (s.contains("who") && s.contains("are") && s.contains("?")) // "Who are you?"
+						out = 1;	
 					else if (s.contains("how") && s.contains("you") && s.contains("?")) // "How are you?"
 						out = 2;
 					else if (s.contains("i like") || s.contains("i enjoy") || s.contains("i love") || s.contains("my favorite") && (s.contains(".") || s.contains("!"))) { //"I love skiing!"
@@ -224,21 +236,6 @@ public class MyEventListener extends ListenerAdapter{
 					else	// "Blah blah blah."
 						out = 30;
 					
-					/* TESTING CODE
-					 	for(int i=0;i<nouns.length;i++) {
-						if(nouns[i]!=null) {	
-							channel.sendMessage(nouns[i]).queue();
-						}
-					 }
-					 
-					channel.sendMessage("Here are the names: ").queue();
-					for(int i=0;i<names.length;i++) {
-						if(names[i]!=null) {	
-							channel.sendMessage(names[i]).queue();
-						}
-					 }
-					channel.sendMessage("The numbers are "+num1+", "+num2).queue();
-					*/
 					
 					//output
 					switch (out) {
@@ -395,12 +392,73 @@ public class MyEventListener extends ListenerAdapter{
 		            case 28:
 		            	channel.sendMessage("Agreed.").queue();
 		            	break;
+		            case 31:	
+						String tLang = "";
+						if(s.contains("french")) {
+							tLang = "fr";
+						} else if(s.contains("spanish")) {
+							tLang = "es";
+						} else if(s.contains("portuguese")) {
+							tLang = "pt";
+						} else {
+							channel.sendMessage("Incorrect input, try !translate for more info");
+							break;
+						}
+						
+						String[] separate = s.split("~");
+						String[] trnslt = separate[1].split(" ");
+						
+						String txt = "";
+						for(String str: trnslt) {
+							if(!str.equals("translate")&&!str.equals("!")&&!str.equals("!translate")) {
+								txt = txt + str + " ";
+							}
+						}
+						channel.sendMessage(Translator.translate("en", tLang, txt)/* + translated text */).queue();
+						break;	
+					
+							
+					case 32:
+						EmbedBuilder embed = new EmbedBuilder();
+						embed.setColor(Color.BLUE);
+						embed.setTitle("Translate Command");
+						embed.setDescription("For Translation use the following format: !translate to <language> ~ <text to translate>");
+						embed.addField("Example: ", "!translate to french ~ What is the time?", false);
+						embed.addField("Available Languages: ", "French, Spanish, Portuguese", false);
+						embed.setFooter("Translation by Google Translate API; Bot developed by Suyash");
+						channel.sendMessage(embed.build()).queue();
+						embed.clear();
+						break;
+						
+					case 33:
+						String[] wikiReq = s.split("~");
+						String wikiRes = wikiReq[1];
+						EmbedBuilder wikiEmbed = new EmbedBuilder();
+						wikiEmbed.setTitle("Wiki Info");
+						wikiEmbed.setDescription("This is info from wikipedia: ");
+						wikiEmbed.addField("Your results: ", wikipediaEmbed.wiki(wikiRes), false);
+						wikiEmbed.setFooter("Wikipedia info from wikipedia.org;  Bot developed by Suyash");
+						channel.sendMessage(wikiEmbed.build()).queue();
+						break;
+					case 34:
+						EmbedBuilder helpWikiEmbed = new EmbedBuilder();
+						helpWikiEmbed.setTitle("Wiki Command Help");
+						helpWikiEmbed.setDescription("To search wikipedia definitions: ");
+						helpWikiEmbed.addField("Use wiki command: ", "!wiki info ~ <search request>", false);
+						helpWikiEmbed.setFooter("Wikipedia info from wikipedia.org;  Bot developed by Suyash");
+						channel.sendMessage(helpWikiEmbed.build()).queue();
 					case 29:
 						channel.sendMessage("I dont know...").queue();
 						break;
+					
 					case 30:
+						if(s.contains("~") || s.contains("wiki info")) {
+							break;
+						} else {
 						channel.sendMessage("I dont understand.").queue();
 						break;
+						}
+					
 					}
 				}
 		
