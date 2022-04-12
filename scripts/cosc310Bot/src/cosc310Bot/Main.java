@@ -9,7 +9,7 @@ public class Main {
 	public static String prefix = "!";
 	public static void main(String [] args) throws Exception{
 		try {
-			JDABuilder jda = JDABuilder.createDefault("OTYxNzk4Mzc4NDU3NTU5MDYx.Yk-Oig.L6ek2GjpUko6NMsVu4zkTyYo44E"); //TO-DELETE: OTYxNzk4Mzc4NDU3NTU5MDYx.Yk-Oig.L6ek2GjpUko6NMsVu4zkTyYo44E
+			JDABuilder jda = JDABuilder.createDefault("Discord_BOT_TOKEN"); 
 			jda.addEventListeners(new MyEventListener());
 			jda.build();
 		}catch(Exception e) {
